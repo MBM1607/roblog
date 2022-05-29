@@ -24,18 +24,7 @@
 
   @include('_posts-header')
 
-  <main class="mx-auto mt-6 max-w-6xl space-y-6 lg:mt-20">
-    <x-post-featured-card />
-
-    <div class="lg:grid lg:grid-cols-2">
-      <x-post-card />
-      <x-post-card />
-    </div>
-
-    <div class="lg:grid lg:grid-cols-3">
-      <x-post-card />
-      <x-post-card />
-      <x-post-card />
-    </div>
+  <main class="mx-auto mt-6 max-w-6xl space-y-6">
+    <x-posts-grid :posts="$posts" />
   </main>
 </x-layout>

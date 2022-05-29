@@ -1,3 +1,5 @@
+@props(['post'])
+
 <article
   class="rounded-xl border border-black border-opacity-0 transition-colors duration-300 hover:border-opacity-5 hover:bg-gray-100"
 >
@@ -8,48 +10,40 @@
         alt="Blog Post illustration"
         class="rounded-xl"
       >
+      {{-- TODO --}}
     </div>
 
     <div class="flex flex-1 flex-col justify-between">
       <header class="mt-8 lg:mt-0">
         <div class="space-x-2">
           <a
-            href="#"
+            href="/categories/{{ $post->category->slug }}"
             class="rounded-full border border-blue-300 px-3 py-1 text-xs font-semibold uppercase text-blue-300"
             style="font-size: 10px"
-          >Techniques</a>
-
-          <a
-            href="#"
-            class="rounded-full border border-red-300 px-3 py-1 text-xs font-semibold uppercase text-red-300"
-            style="font-size: 10px"
-          >Updates</a>
+          >
+            {{ $post->category->name }}
+          </a>
         </div>
 
         <div class="mt-4">
           <h1 class="text-3xl">
-            This is a big title and it will look great on two or even three
-            lines. Wooohoo!
+            <a href='/posts/{{ $post->slug }}'>
+              {{ $post->title }}
+            </a>
           </h1>
 
           <span class="mt-2 block text-xs text-gray-400">
-            Published <time>1 day ago</time>
+            Published
+            <time>
+              {{ $post->created_at->diffForHumans() }}
+            </time>
           </span>
         </div>
       </header>
 
       <div class="mt-2 text-sm">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-
-        <p class="mt-4">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur.
+          {{ $post->excerpt }}
         </p>
       </div>
 
@@ -60,19 +54,20 @@
             alt="Lary avatar"
           >
           <div class="ml-3">
-            <h5 class="font-bold">Lary Laracore</h5>
-            <h6>Mascot at Laracasts</h6>
+            <h5 class="font-bold">
+              {{ $post->author->name }}
+            </h5>
           </div>
         </div>
 
         <div class="hidden lg:block">
           <a
-            href="#"
+            href="/posts/{{ $post->slug }}"
             class="rounded-full bg-gray-200 py-2 px-8 text-xs font-semibold transition-colors duration-300 hover:bg-gray-300"
           >Read
             More</a>
         </div>
       </footer>
     </div>
-  </div>
+    </d>
 </article>
