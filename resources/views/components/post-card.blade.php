@@ -50,7 +50,7 @@
           >
           <div class="ml-3">
             <h5 class="font-bold">
-              <a href='authors/{{ $post->author->slug }}'>
+              <a href='/?author={{ $post->author->username }}'>
                 {{ $post->author->name }}
               </a>
             </h5>

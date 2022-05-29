@@ -10,32 +10,7 @@
   <div class='mt-4 space-y-2 lg:space-y-0 lg:space-x-4'>
     <!--  Category -->
     <div class="relative rounded-xl bg-gray-100 lg:inline-flex">
-      <x-dropdown>
-
-        <x-slot name='trigger'>
-          <button class='inline-flex w-full py-2 pl-3 pr-9 text-left text-sm font-semibold lg:w-32'>
-            {{ isset($currentCategory) ? ucwords($currentCategory->name) : 'Categories' }}
-
-            @include('svg._down-arrow')
-          </button>
-        </x-slot>
-
-        <x-dropdown-item
-          href='/'
-          :active="request()->routeIs('home')"
-        >
-          All
-        </x-dropdown-item>
-
-        @foreach ($categories as $category)
-          <x-dropdown-item
-            href='/categories/{{ $category->slug }}'
-            :active='request()->is("categories/{$category->slug}")'
-          >
-            {{ $category->name }}
-          </x-dropdown-item>
-        @endforeach
-      </x-dropdown>
+      <x-category-dropdown />
     </div>
 
     <!-- Other Filters -->
