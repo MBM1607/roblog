@@ -10,7 +10,7 @@
   {{-- Links --}}
   <div
     x-show="show"
-    class='absolute mt-2 w-full rounded-xl bg-gray-100 py-2'
+    class='absolute z-50 mt-2 max-h-52 w-full overflow-auto rounded-xl bg-gray-100 py-2'
     style="display: none;"
   >
     {{ $slot }}
