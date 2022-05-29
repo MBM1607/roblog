@@ -16,13 +16,7 @@
     <div class="flex flex-1 flex-col justify-between">
       <header class="mt-8 lg:mt-0">
         <div class="space-x-2">
-          <a
-            href="/categories/{{ $post->category->slug }}"
-            class="rounded-full border border-blue-300 px-3 py-1 text-xs font-semibold uppercase text-blue-300"
-            style="font-size: 10px"
-          >
-            {{ $post->category->name }}
-          </a>
+          <x-category-button :category="$post->category" />
         </div>
 
         <div class="mt-4">
@@ -55,7 +49,9 @@
           >
           <div class="ml-3">
             <h5 class="font-bold">
-              {{ $post->author->name }}
+              <a href='authors/{{ $post->author->slug }}'>
+                {{ $post->author->name }}
+              </a>
             </h5>
           </div>
         </div>
