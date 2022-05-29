@@ -24,52 +24,32 @@
   <div class="mt-8 space-y-2 lg:space-y-0 lg:space-x-4">
     <!--  Category -->
     <div class="relative rounded-xl bg-gray-100 lg:inline-flex">
+      <x-dropdown>
 
-      <div
-        x-data='{ show: false }'
-        @click.away='show = false'
-      >
-        <button
-          @click="show = ! show "
-          class='inline-flex w-full py-2 pl-3 pr-9 text-left text-sm font-semibold lg:w-32'
+        <x-slot name='trigger'>
+          <button class='inline-flex w-full py-2 pl-3 pr-9 text-left text-sm font-semibold lg:w-32'>
+            {{ isset($currentCategory) ? ucwords($currentCategory->name) : 'Categories' }}
+
+            @include('svg._down-arrow')
+          </button>
+        </x-slot>
+
+        <x-dropdown-item
+          href='/'
+          :active="request()->routeIs('home')"
         >
-          {{ isset($currentCategory) ? ucwords($currentCategory->name) : 'Categories' }}
+          All
+        </x-dropdown-item>
 
-          @include('_down-arrow')
-        </button>
-
-        <div
-          x-show="show"
-          class='absolute mt-2 w-full rounded-xl bg-gray-100 py-2'
-          style="display: none;"
-        >
-          @if (isset($currentCategory))
-            <a
-              href="/"
-              class="relative z-10 block bg-gray-100 px-3 text-left text-sm leading-6 hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white"
-            >
-              All
-            </a>
-            @foreach ($categories as $category)
-              <a
-                href="{{ $category->slug }}"
-                class="relative z-10 block bg-gray-100 px-3 text-left text-sm leading-6 hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white"
-              >
-                {{ $category->name }}
-              </a>
-            @endforeach
-          @else
-            @foreach ($categories as $category)
-              <a
-                href="categories/{{ $category->slug }}"
-                class="relative z-10 block bg-gray-100 px-3 text-left text-sm leading-6 hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white"
-              >
-                {{ $category->name }}
-              </a>
-            @endforeach
-          @endif
-        </div>
-      </div>
+        @foreach ($categories as $category)
+          <x-dropdown-item
+            href='/categories/{{ $category->slug }}'
+            :active='request()->is("categories/{$category->slug}")'
+          >
+            {{ $category->name }}
+          </x-dropdown-item>
+        @endforeach
+      </x-dropdown>
     </div>
 
     <!-- Other Filters -->
@@ -87,7 +67,7 @@
         </option>
       </select>
 
-      @include('_down-arrow')
+      @include('svg._down-arrow')
     </div>
 
     <!-- Search -->
