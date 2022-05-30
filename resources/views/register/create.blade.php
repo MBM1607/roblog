@@ -24,7 +24,14 @@
             id='name'
             required
             max='255'
+            value="{{ old('name') }}"
           />
+
+          @error('name')
+            <p class='mt-1 text-xs text-red-500'>
+              {{ $message }}
+            </p>
+          @enderror
         </div>
 
         <div class='mb-6'>
@@ -33,6 +40,7 @@
             for='username'
             max='255'
             min='3'
+            value="{{ old('username') }}"
           >
             Username
           </label>
@@ -44,6 +52,12 @@
             id='username'
             required
           />
+
+          @error('username')
+            <p class='mt-1 text-xs text-red-500'>
+              {{ $message }}
+            </p>
+          @enderror
         </div>
 
         <div class='mb-6'>
@@ -61,7 +75,14 @@
             id='email'
             max='255'
             required
+            value="{{ old('email') }}"
           />
+
+          @error('email')
+            <p class='mt-1 text-xs text-red-500'>
+              {{ $message }}
+            </p>
+          @enderror
         </div>
 
         <div class='mb-6'>
@@ -81,6 +102,12 @@
             max='255'
             min='7'
           />
+
+          @error('password')
+            <p class='mt-1 text-xs text-red-500'>
+              {{ $message }}
+            </p>
+          @enderror
         </div>
 
         <div class='mb-6'>
