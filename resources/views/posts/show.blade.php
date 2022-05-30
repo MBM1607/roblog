@@ -80,10 +80,51 @@
         </div>
 
         <section class='col-span-8 col-start-5 mt-10 space-y-6'>
-          <x-post-comment />
-          <x-post-comment />
-          <x-post-comment />
-          <x-post-comment />
+
+          <form
+            action='#'
+            method='post'
+            class='rounded-xl border border-gray-200 p-6'
+          >
+            @csrf
+
+            <header class='flex items-center'>
+              <img
+                src='https://i.pravatar.cc/100?u={{ auth()->id() }}'
+                alt='Profile Image'
+                loading='lazy'
+                width='40'
+                height='40'
+                class='rounded-full'
+              />
+
+              <h2 class='ml-4'>Want to participate</h2>
+            </header>
+
+            <div class='mt-6'>
+              <textarea
+                name='body'
+                cols='30'
+                rows='5'
+                class='text-small focs:outline-none w-full resize-none rounded-xl border border-gray-200 p-2 focus:ring'
+                placeholder='Quick, think of something to say!'
+></textarea>
+            </div>
+
+            <div class='mt-6 flex justify-end border-t border-gray-200 pt-5'>
+              <button
+                class='rounded-2xl bg-blue-500 py-2 px-10 text-xs font-semibold uppercase text-white hover:bg-blue-600'
+                type='submit'
+              >
+                POST
+              </button>
+            </div>
+          </form>
+
+
+          @foreach ($post->comments as $comment)
+            <x-post-comment :comment='$comment' />
+          @endforeach
         </section>
       </article>
     </main>
