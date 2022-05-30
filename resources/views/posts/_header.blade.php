@@ -37,6 +37,14 @@
         method="GET"
         action="#"
       >
+        @if (request('category'))
+          <input
+            type='hidden'
+            name='category'
+            value='{{ request('category') }}'
+          >
+        @endif
+
         <input
           type="text"
           name="search"
