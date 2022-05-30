@@ -3,7 +3,7 @@
     <main class='mx-auto mt-10 max-w-lg rounded-xl border bg-gray-100 p-6'>
       <h1 class='text-center text-xl font-bold'>Log In!</h1>
       <form
-        action='/sessions'
+        action='/login'
         method='post'
         class='mt-10'
       >

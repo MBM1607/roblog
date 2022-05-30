@@ -4,7 +4,7 @@
   <article class='flex space-x-4'>
     <div class='flex-shrink-0'>
       <img
-        src='https://i.pravatar.cc/100?u={{ $comment->id }}'
+        src='https://i.pravatar.cc/100?u={{ $comment->user_id }}'
         alt='Profile Image'
         loading='lazy'
         width='60'
@@ -21,7 +21,7 @@
         <p class='text-xs'>
           Posted
           <time>
-            {{ $comment->created_at }}
+            {{ $comment->created_at->format('F j, Y, g:i a') }}
           </time>
         </p>
       </header>
