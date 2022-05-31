@@ -18,6 +18,13 @@ src="//unpkg.com/alpinejs"
 defer
 ></script>
 
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+</style>
+
 <body style="font-family: Open Sans, sans-serif">
   <section class="px-6 py-8">
     <nav class="md:flex md:items-center md:justify-between">
@@ -65,7 +72,7 @@ defer
 
 
         <a
-          href="#"
+          href="#newsletter"
           class="ml-3 rounded-full bg-blue-500 py-3 px-5 text-xs font-semibold uppercase text-white"
         >
           Subscribe for Updates
@@ -76,6 +83,7 @@ defer
     {{ $slot }}
 
     <footer
+      id='newsletter'
       class="mt-16 rounded-xl border border-black border-opacity-5 bg-gray-100 py-16 px-10 text-center"
     >
       <img
