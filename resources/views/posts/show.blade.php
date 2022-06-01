@@ -4,8 +4,8 @@
       <article class="mx-auto max-w-4xl gap-x-10 lg:grid lg:grid-cols-12">
         <div class="col-span-4 mb-10 lg:pt-14 lg:text-center">
           <img
-            src="/images/illustration-1.png"
-            alt=""
+            src="{{ asset('storage/' . $post->thumbnail) }}"
+            alt="Blog Post illustration"
             class="rounded-xl"
           >
 

@@ -1,119 +1,31 @@
 <x-layout>
-  <div class='px-6 py-8'>
-    <x-panel class='mx-auto max-w-sm'>
+  <section class='mx-auto max-w-sm py-8'>
+    <h1 class='mb-4 text-lg font-bold'>
+      Publish New Post
+    </h1>
+
+    <x-panel>
       <form
         action='/admin/posts'
         method='post'
         class=''
+        enctype='multipart/form-data'
       >
         @csrf
 
-        <div class='mb-6'>
-          <label
-            class='mb-2 block text-xs font-bold uppercase text-gray-700'
-            for='title'
-          >
-            Title
-          </label>
+        <x-form.input name='title' />
+        <x-form.input name='slug' />
 
-          <input
-            class='w-full border border-gray-400 p-2'
-            type='text'
-            name='title'
-            id='title'
-            max='255'
-            min='5'
-            required
-            value="{{ old('title') }}"
-          />
+        <x-form.input
+          name='thumbnail'
+          type='file'
+        />
 
-          @error('title')
-            <p class='mt-1 text-xs text-red-500'>
-              {{ $message }}
-            </p>
-          @enderror
-        </div>
+        <x-form.textarea name='excerpt' />
+        <x-form.textarea name='body' />
 
         <div class='mb-6'>
-          <label
-            class='mb-2 block text-xs font-bold uppercase text-gray-700'
-            for='slug'
-          >
-            Slug
-          </label>
-
-          <input
-            class='w-full border border-gray-400 p-2'
-            type='text'
-            name='slug'
-            id='slug'
-            max='255'
-            min='5'
-            required
-            value="{{ old('slug') }}"
-          />
-
-          @error('slug')
-            <p class='mt-1 text-xs text-red-500'>
-              {{ $message }}
-            </p>
-          @enderror
-        </div>
-
-        <div class='mb-6'>
-          <label
-            class='mb-2 block text-xs font-bold uppercase text-gray-700'
-            for='excerpt'
-          >
-            Excerpt
-          </label>
-
-          <textarea
-            class='w-full w-full border border-gray-400 p-2'
-            name='excerpt'
-            id='excerpt'
-            max='2500'
-            required
->{{ old('excerpt') }}</textarea>
-
-          @error('excerpt')
-            <p class='mt-1 text-xs text-red-500'>
-              {{ $message }}
-            </p>
-          @enderror
-        </div>
-
-        <div class='mb-6'>
-          <label
-            class='mb-2 block text-xs font-bold uppercase text-gray-700'
-            for='body'
-          >
-            Body
-          </label>
-
-          <textarea
-            class='w-full w-full border border-gray-400 p-2'
-            name='body'
-            id='body'
-            max='50000'
-            required
->{{ old('body') }}</textarea>
-
-          @error('body')
-            <p class='mt-1 text-xs text-red-500'>
-              {{ $message }}
-            </p>
-          @enderror
-        </div>
-
-        <div class='mb-6'>
-          <label
-            class='mb-2 block text-xs font-bold uppercase text-gray-700'
-            for='category_id'
-          >
-            Category
-          </label>
-
+          <x-form.label name='category' />
 
           <select
             name='category_id'
@@ -129,15 +41,11 @@
             @endforeach
           </select>
 
-          @error('category')
-            <p class='mt-1 text-xs text-red-500'>
-              {{ $message }}
-            </p>
-          @enderror
+          <x-form.error name='category' />
         </div>
 
-        <x-submit-button>Publish</x-submit-button>
+        <x-form.button>Publish</x-form.button>
       </form>
     </x-panel>
-  </div>
+  </section>
 </x-layout>

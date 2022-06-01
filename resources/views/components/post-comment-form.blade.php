@@ -39,8 +39,8 @@
   </div>
 
   <div class='mt-6 flex justify-end border-t border-gray-200 pt-5'>
-    <x-submit-button>
+    <x-form.button>
       Post
-    </x-submit-button>
+    </x-form.button>
   </div>
 </form>

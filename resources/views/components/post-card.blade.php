@@ -9,11 +9,10 @@
   <div class="py-6 px-5">
     <div>
       <img
-        src="/images/illustration-1.png"
+        src="{{ asset('storage/' . $post->thumbnail) }}"
         alt="Blog Post illustration"
         class="rounded-xl"
       >
-      {{-- TODO --}}
     </div>
 
     <div class="mt-8 flex flex-col justify-between">

@@ -19,8 +19,6 @@ class DatabaseSeeder extends Seeder
     {
         Post::factory(10)->create();
 
-        // $user = User::factory()->create();
-
         // $family = Category::create([
         //     'name' => 'Family',
         //     'slug' => 'family'

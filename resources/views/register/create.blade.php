@@ -40,7 +40,6 @@
             for='username'
             max='255'
             min='3'
-            value="{{ old('username') }}"
           >
             Username
           </label>
@@ -51,6 +50,7 @@
             name='username'
             id='username'
             required
+            value="{{ old('username') }}"
           />
 
           @error('username')
