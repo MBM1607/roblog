@@ -9,8 +9,7 @@
     id='{{ $name }}'
     required
     max='255'
-    value="{{ old($name) }}"
-    {{ $attributes }}
+    {{ $attributes(['value' => old($name), 'max' => '255']) }}
   />
 
   <x-form.error name='{{ $name }}' />

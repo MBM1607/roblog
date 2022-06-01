@@ -63,10 +63,10 @@ defer
             </x-slot>
 
             <x-dropdown-item
-              href='/admin/dashboard'
-              :active="request()->is('admin/dashboard')"
+              href='/admin/posts'
+              :active="request()->is('admin/posts')"
             >
-              Dashboard
+              All Posts
             </x-dropdown-item>
             <x-dropdown-item
               href='/admin/posts/create'
