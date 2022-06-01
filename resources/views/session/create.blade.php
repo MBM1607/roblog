@@ -1,73 +1,32 @@
 <x-layout>
   <section class='px-6 py-8'>
-    <main class='mx-auto mt-10 max-w-lg rounded-xl border bg-gray-100 p-6'>
-      <h1 class='text-center text-xl font-bold'>Log In!</h1>
-      <form
-        action='/login'
-        method='post'
-        class='mt-10'
-      >
-        @csrf
+    <main class='mx-auto mt-10 max-w-lg'>
 
-        <div class='mb-6'>
-          <label
-            class='mb-2 block text-xs font-bold uppercase text-gray-700'
-            for='email'
-          >
-            Email
-          </label>
+      <x-panel>
 
-          <input
-            class='w-full border border-gray-400 p-2'
-            type='email'
+        <h1 class='text-center text-xl font-bold'>Log In!</h1>
+        <form
+          action='/login'
+          method='post'
+          class='mt-10'
+        >
+          @csrf
+
+          <x-form.input
             name='email'
-            id='email'
-            max='255'
-            required
-            value="{{ old('email') }}"
+            type='email'
+            autocomplete='username'
           />
 
-          @error('email')
-            <p class='mt-1 text-xs text-red-500'>
-              {{ $message }}
-            </p>
-          @enderror
-        </div>
-
-        <div class='mb-6'>
-          <label
-            class='mb-2 block text-xs font-bold uppercase text-gray-700'
-            for='password'
-          >
-            Password
-          </label>
-
-          <input
-            class='w-full border border-gray-400 p-2'
-            type='password'
+          <x-form.input
             name='password'
-            id='password'
-            required
-            max='255'
-            min='7'
+            type='password'
+            autocomplete='new-password'
           />
 
-          @error('password')
-            <p class='mt-1 text-xs text-red-500'>
-              {{ $message }}
-            </p>
-          @enderror
-        </div>
-
-        <div class='mb-6'>
-          <button
-            type='submit'
-            class='w-full rounded bg-blue-400 py-2 px-4 text-white hover:bg-blue-500'
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+          <x-form.button>Log In</x-form.button>
+        </form>
+      </x-panel>
     </main>
   </section>
 </x-layout>

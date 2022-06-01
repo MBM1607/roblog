@@ -1,124 +1,35 @@
 <x-layout>
   <section class='px-6 py-8'>
-    <main class='mx-auto mt-10 max-w-lg rounded-xl border bg-gray-100 p-6'>
-      <h1 class='text-center text-xl font-bold'>Register!</h1>
-      <form
-        action='/register'
-        method='post'
-        class='mt-10'
-      >
-        @csrf
+    <main class='mx-auto mt-10 max-w-lg'>
+      <x-panel>
 
-        <div class='mb-6'>
-          <label
-            class='mb-2 block text-xs font-bold uppercase text-gray-700'
-            for='name'
-          >
-            Name
-          </label>
+        <h1 class='text-center text-xl font-bold'>Register!</h1>
+        <form
+          action='/register'
+          method='post'
+          class='mt-10'
+        >
+          @csrf
 
-          <input
-            class='w-full border border-gray-400 p-2'
-            type='text'
-            name='name'
-            id='name'
-            required
-            max='255'
-            value="{{ old('name') }}"
-          />
-
-          @error('name')
-            <p class='mt-1 text-xs text-red-500'>
-              {{ $message }}
-            </p>
-          @enderror
-        </div>
-
-        <div class='mb-6'>
-          <label
-            class='mb-2 block text-xs font-bold uppercase text-gray-700'
-            for='username'
-            max='255'
-            min='3'
-          >
-            Username
-          </label>
-
-          <input
-            class='w-full border border-gray-400 p-2'
-            type='text'
+          <x-form.input name='name' />
+          <x-form.input
             name='username'
-            id='username'
-            required
-            value="{{ old('username') }}"
+            min='3'
           />
-
-          @error('username')
-            <p class='mt-1 text-xs text-red-500'>
-              {{ $message }}
-            </p>
-          @enderror
-        </div>
-
-        <div class='mb-6'>
-          <label
-            class='mb-2 block text-xs font-bold uppercase text-gray-700'
-            for='email'
-          >
-            Email
-          </label>
-
-          <input
-            class='w-full border border-gray-400 p-2'
-            type='email'
+          <x-form.input
             name='email'
-            id='email'
-            max='255'
-            required
-            value="{{ old('email') }}"
+            type='email'
+            min='3'
           />
-
-          @error('email')
-            <p class='mt-1 text-xs text-red-500'>
-              {{ $message }}
-            </p>
-          @enderror
-        </div>
-
-        <div class='mb-6'>
-          <label
-            class='mb-2 block text-xs font-bold uppercase text-gray-700'
-            for='password'
-          >
-            Password
-          </label>
-
-          <input
-            class='w-full border border-gray-400 p-2'
-            type='password'
+          <x-form.input
             name='password'
-            id='password'
-            required
-            max='255'
+            type='password'
             min='7'
           />
 
-          @error('password')
-            <p class='mt-1 text-xs text-red-500'>
-              {{ $message }}
-            </p>
-          @enderror
-        </div>
-
-        <div class='mb-6'>
-          <button
-            type='submit'
-            class='w-full rounded bg-blue-400 py-2 px-4 text-white hover:bg-blue-500'
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+          <x-form.button>Submit</x-form.button>
+        </form>
+      </x-panel>
     </main>
   </section>
 </x-layout>

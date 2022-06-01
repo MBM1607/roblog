@@ -55,18 +55,41 @@ defer
             Log In
           </a>
         @else
-          <span class="text-xs font-bold uppercase">
-            Welcome, {{ auth()->user()->name }}
-          </span>
+          <x-dropdown>
+            <x-slot name='trigger'>
+              <button class="text-xs font-bold uppercase">
+                Welcome, {{ auth()->user()->name }}
+              </button>
+            </x-slot>
+
+            <x-dropdown-item
+              href='/admin/dashboard'
+              :active="request()->is('admin/dashboard')"
+            >
+              Dashboard
+            </x-dropdown-item>
+            <x-dropdown-item
+              href='/admin/posts/create'
+              :active="request()->is('admin/posts/create')"
+            >
+              New Post
+            </x-dropdown-item>
+            <x-dropdown-item
+              href='#'
+              x-data='{}'
+              @click.prevent="document.querySelector('#logout-form').submit();"
+            >
+              Logout
+            </x-dropdown-item>
+          </x-dropdown>
 
           <form
+            id='logout-form'
             action='/logout'
             method='post'
-            class='ml-6 text-xs font-semibold text-blue-500'
+            class='hidden'
           >
             @csrf
-
-            <button type='submit'>Log Out</button>
           </form>
         @endguest
 
