@@ -4,7 +4,7 @@
   <article class='flex space-x-4'>
     <div class='flex-shrink-0'>
       <img
-        src="https://api.dicebear.com/7.x/bottts/svg?seed={{ auth()->id() }}"
+        src="https://api.dicebear.com/7.x/bottts/svg?seed={{ $comment->author->id }}"
         alt='Profile Image'
         loading='lazy'
         width='60'
