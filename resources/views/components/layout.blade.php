@@ -1,18 +1,19 @@
 <!doctype html>
 
-<title>Laravel From Scratch Blog</title>
-<link
-  href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-  rel="stylesheet"
->
-<link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
->
-<link
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
-  rel="stylesheet"
->
+<title>Roblog</title>
+<meta
+  name='viewport'
+  content='width=device-width, initial-scale=1.0, minimum-scale=1.0'
+/>
+<meta
+  name='theme-color'
+  content='#FF8400'
+/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
 <script
 src="//unpkg.com/alpinejs"
 defer
@@ -25,16 +26,15 @@ defer
 
 </style>
 
-<body style="font-family: Open Sans, sans-serif">
+<body style="font-family: 'Roboto Slab', serif;" class="bg-orange-100">
   <section class="px-6 py-8">
     <nav class="md:flex md:items-center md:justify-between">
       <div>
         <a href="/">
           <img
             src="/images/logo.svg"
-            alt="Laracasts Logo"
+            alt="Roblog Logo"
             width="165"
-            height="16"
           >
         </a>
       </div>
@@ -43,14 +43,14 @@ defer
         @guest
           <a
             href="/register"
-            class="text-xs font-bold uppercase"
+            class="ml-3 rounded-full border border-orange-500 py-3 px-5 text-xs font-bold uppercase text-orange-500"
           >
             Register
           </a>
 
           <a
             href="/login"
-            class="ml-6 text-xs font-bold uppercase"
+            class="ml-3 rounded-full border border-orange-500 py-3 px-5 text-xs font-bold uppercase text-orange-500"
           >
             Log In
           </a>
@@ -99,7 +99,7 @@ defer
 
         <a
           href="#newsletter"
-          class="ml-3 rounded-full bg-blue-500 py-3 px-5 text-xs font-semibold uppercase text-white"
+          class="ml-3 rounded-full bg-orange-500 py-3 px-5 text-xs font-semibold uppercase text-white"
         >
           Subscribe for Updates
         </a>
@@ -110,7 +110,7 @@ defer
 
     <footer
       id='newsletter'
-      class="mt-16 rounded-xl border border-black border-opacity-5 bg-gray-100 py-16 px-10 text-center"
+      class="mt-16 rounded-xl border border-black border-opacity-5 bg-red-100 py-16 px-10 text-center"
     >
       <img
         src="/images/lary-newsletter-icon.svg"
@@ -127,7 +127,7 @@ defer
       </p>
 
       <div class="mt-10">
-        <div class="relative mx-auto inline-block rounded-full lg:bg-gray-200">
+        <div class="relative mx-auto inline-block rounded-full lg:bg-red-100">
 
           <form
             method="POST"
@@ -136,7 +136,7 @@ defer
           >
             @csrf
 
-            <div class="flex items-center lg:py-3 lg:px-5">
+            <div class="flex items-center lg:py-3 lg:px-5 border border-orange-500 rounded-full">
               <label
                 for="email"
                 class="hidden lg:inline-block"
@@ -154,7 +154,7 @@ defer
                   name="email"
                   type="email"
                   placeholder="Your email address"
-                  class="py-2 pl-4 focus-within:outline-none lg:bg-transparent lg:py-0"
+                  class="py-2 pl-4 focus-within:outline-none bg-red-100 rounded-full lg:bg-transparent lg:py-0 text-orange-600 placeholder-slate-500 font-semibold"
                 />
 
                 @error('email')
@@ -167,7 +167,7 @@ defer
 
             <button
               type="submit"
-              class="mt-4 rounded-full bg-blue-500 py-3 px-8 text-xs font-semibold uppercase text-white transition-colors duration-300 hover:bg-blue-600 lg:mt-0 lg:ml-3"
+              class="mt-4 rounded-full bg-orange-500 py-3 px-8 text-xs font-semibold uppercase text-white transition-colors duration-300 hover:bg-orange-600 lg:mt-0 lg:ml-3"
             >
               Subscribe
             </button>

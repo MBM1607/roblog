@@ -1,38 +1,19 @@
 <header class="mx-auto mt-20 max-w-xl text-center">
   <h1 class="text-4xl">
     Latest
-    <span class="text-blue-500">
-      Laravel From Scratch
+    <span class="text-orange-500 underline decoration-2">
+      Roblog
     </span>
     News
   </h1>
 
   <div class='mt-4 space-y-2 lg:space-y-0 lg:space-x-4'>
     <!--  Category -->
-    <div class="relative rounded-xl bg-gray-100 lg:inline-flex">
+    <div class="relative rounded-xl bg-red-200 lg:inline-flex">
       <x-category-dropdown />
     </div>
-
-    <!-- Other Filters -->
-    {{-- <div class="relative flex items-center rounded-xl bg-gray-100 lg:inline-flex">
-      <select class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9 text-sm font-semibold">
-        <option
-          value="category"
-          disabled
-          selected
-        >Other Filters
-        </option>
-        <option value="foo">Foo
-        </option>
-        <option value="bar">Bar
-        </option>
-      </select>
-
-      @include('svg._down-arrow')
-    </div> --}}
-
     <!-- Search -->
-    <div class="relative flex items-center rounded-xl bg-gray-100 px-3 py-2 lg:inline-flex">
+    <div class="relative flex items-center rounded-xl bg-red-200 px-3 py-2 lg:inline-flex">
       <form
         method="GET"
         action="#"

@@ -14,7 +14,7 @@
         <li>
           <a
             href='/admin/posts'
-            class="{{ request()->is('admin/posts') ? 'text-blue-500' : '' }}"
+            class="{{ request()->is('admin/posts') ? 'text-orange-500 underline decoration-2' : '' }}"
           >
             All Posts
           </a>
@@ -22,7 +22,7 @@
         <li>
           <a
             href='/admin/posts/create'
-            class="{{ request()->is('admin/posts/create') ? 'text-blue-500' : '' }}"
+            class="{{ request()->is('admin/posts/create') ? 'text-orange-500 underline decoration-2' : '' }}"
           >
             New Post
           </a>

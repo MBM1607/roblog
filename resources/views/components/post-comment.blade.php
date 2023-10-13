@@ -1,6 +1,6 @@
 @props(['comment'])
 
-<x-panel class='bg-gray-50'>
+<x-panel class='bg-red-50'>
   <article class='flex space-x-4'>
     <div class='flex-shrink-0'>
       <img

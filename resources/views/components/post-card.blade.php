@@ -3,13 +3,14 @@
 <article
   {{ $attributes->merge([
       'class' =>
-          'rounded-xl border border-black border-opacity-0 transition-colors duration-300 hover:border-opacity-5 hover:bg-gray-100',
+          'rounded-xl border border-black border-opacity-5 transition-colors duration-300 hover:bg-red-100',
   ]) }}
 >
   <div class="py-6 px-5">
     <div>
       <img
-        src="{{ asset('storage/' . $post->thumbnail) }}"
+        {{-- src="{{ asset('storage/' . $post->thumbnail) }}" --}}
+        src="https://picsum.photos/seed/{{ $post->id }}/512/400"
         alt="Blog Post illustration"
         class="rounded-xl"
       >
@@ -28,7 +29,7 @@
             </a>
           </h1>
 
-          <span class="mt-2 block text-xs text-gray-400">
+          <span class="mt-2 block text-xs text-red-400">
             Published
             <time>
               {{ $post->created_at->diffForHumans() }}
@@ -44,9 +45,11 @@
       <footer class="mt-8 flex items-center justify-between">
         <div class="flex items-center text-sm">
           <img
-            src="/images/lary-avatar.svg"
-            alt="Lary avatar"
-          >
+            src="https://api.dicebear.com/7.x/bottts/svg?seed={{ $post->author->id }}"
+            alt="avatar"
+            loading="lazy"
+            width="56"
+          />
           <div class="ml-3">
             <h5 class="font-bold">
               <a href='/?author={{ $post->author->username }}'>
@@ -59,10 +62,8 @@
         <div>
           <a
             href="/posts/{{ $post->slug }}"
-            class="rounded-full bg-gray-200 py-2 px-8 text-xs font-semibold transition-colors duration-300 hover:bg-gray-300"
-          >
-            Read More
-          </a>
+            class="rounded-full bg-red-300 py-2 px-2 lg:px-8 text-xs font-semibold transition-colors duration-300 hover:bg-red-500"
+          >Read More</a>
         </div>
       </footer>
     </div>

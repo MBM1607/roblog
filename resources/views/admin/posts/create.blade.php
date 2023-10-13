@@ -25,6 +25,7 @@
         <select
           name='category_id'
           id='category_id'
+          class="bg-white rounded-full px-2 py-1"
         >
           @foreach (\App\Models\Category::all() as $category)
             <option

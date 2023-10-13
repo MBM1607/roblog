@@ -3,7 +3,7 @@
 <form
   action='/posts/{{ $post->slug }}/comments'
   method='post'
-  class='rounded-xl border border-gray-200 p-6'
+  class='rounded-xl border border-red-200 p-6'
 >
   @csrf
 
@@ -25,7 +25,7 @@
       name='body'
       cols='30'
       rows='5'
-      class='text-small focs:outline-none w-full resize-none rounded-xl border border-gray-200 p-2 focus:ring'
+      class='text-small focus:outline-none w-full resize-none rounded-xl border border-red-200 p-2 focus:ring'
       placeholder='Quick, think of something to say!'
       max='2500'
       required
@@ -38,7 +38,7 @@
     @enderror
   </div>
 
-  <div class='mt-6 flex justify-end border-t border-gray-200 pt-5'>
+  <div class='mt-6 flex justify-end border-t border-red-200 pt-5'>
     <x-form.button>
       Post
     </x-form.button>

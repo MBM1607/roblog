@@ -4,12 +4,13 @@
       <article class="mx-auto max-w-4xl gap-x-10 lg:grid lg:grid-cols-12">
         <div class="col-span-4 mb-10 lg:pt-14 lg:text-center">
           <img
-            src="{{ asset('storage/' . $post->thumbnail) }}"
+            {{-- src="{{ asset('storage/' . $post->thumbnail) }}" --}}
+            src="https://picsum.photos/seed/{{ $post->id }}/512/400"
             alt="Blog Post illustration"
             class="rounded-xl"
           >
 
-          <p class="mt-4 block text-xs text-gray-400">
+          <p class="mt-4 block text-xs text-red-400">
             Published
             <time>
               {{ $post->created_at->diffForHumans() }}
@@ -18,9 +19,11 @@
 
           <div class="mt-4 flex items-center text-sm lg:justify-center">
             <img
-              src="/images/lary-avatar.svg"
-              alt="Lary avatar"
-            >
+              src="https://api.dicebear.com/7.x/bottts/svg?seed={{ $post->author->id }}"
+              alt="avatar"
+              loading="lazy"
+              width="56"
+            />
             <div class="ml-3 text-left">
               <h5 class="font-bold">
                 <a href='/?author={{ $post->author->username }}'>
@@ -35,7 +38,7 @@
           <div class="mb-6 hidden justify-between lg:flex">
             <a
               href="/"
-              class="relative inline-flex items-center text-lg transition-colors duration-300 hover:text-blue-500"
+              class="relative inline-flex items-center text-lg transition-colors duration-300 hover:text-orange-600 border-orange-600 border rounded-full text-orange-600 px-2 hover:bg-orange-600 hover:text-white"
             >
               <svg
                 width="22"
@@ -108,54 +111,5 @@
         </section>
       </article>
     </main>
-
-    <footer
-      class="mt-16 rounded-xl border border-black border-opacity-5 bg-gray-100 py-16 px-10 text-center"
-    >
-      <img
-        src="/images/lary-newsletter-icon.svg"
-        alt=""
-        class="mx-auto -mb-6"
-        style="width: 145px;"
-      >
-      <h5 class="text-3xl">Stay in touch with the latest posts</h5>
-      <p class="text-sm">Promise to keep the inbox clean. No bugs.</p>
-
-      <div class="mt-10">
-        <div class="relative mx-auto inline-block rounded-full lg:bg-gray-200">
-          <form
-            method="POST"
-            action="#"
-            class="text-sm lg:flex"
-          >
-            <div class="flex items-center lg:py-3 lg:px-5">
-              <label
-                for="email"
-                class="hidden lg:inline-block"
-              >
-                <img
-                  src="/images/mailbox-icon.svg"
-                  alt="mailbox letter"
-                >
-              </label>
-
-              <input
-                id="email"
-                type="text"
-                placeholder="Your email address"
-                class="pl-4 focus-within:outline-none lg:bg-transparent"
-              >
-            </div>
-
-            <button
-              type="submit"
-              class="mt-4 rounded-full bg-blue-500 py-3 px-8 text-xs font-semibold uppercase text-white transition-colors duration-300 hover:bg-blue-600 lg:mt-0 lg:ml-3"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
-      </div>
-    </footer>
   </section>
 </x-layout>
