@@ -9,7 +9,7 @@
 
   <header class='flex items-center'>
     <img
-      src="https://api.dicebear.com/7.x/bottts/svg?seed={{ auth()->id }}"
+      src="https://api.dicebear.com/7.x/bottts/svg?seed={{ auth()->id() }}"
       alt='Profile Image'
       loading='lazy'
       width='40'
