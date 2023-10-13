@@ -14,6 +14,10 @@ console_command = "php /var/www/html/artisan tinker"
 
 [env]
   APP_ENV = "production"
+  DB_CONNECTION = "mysql"
+  DB_HOST = "aws.connect.psdb.cloud"
+  DB_DATABASE = "roblog"
+  MYSQL_ATTR_SSL_CA = "/etc/ssl/certs/ca-certificates.crt"
   LOG_CHANNEL = "stderr"
   LOG_LEVEL = "info"
   LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
