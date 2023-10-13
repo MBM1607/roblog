@@ -13,6 +13,7 @@
         src="https://picsum.photos/seed/{{ $post->id }}/512/400"
         alt="Blog Post illustration"
         class="rounded-xl"
+        loading="lazy"
       >
     </div>
 
@@ -46,7 +47,7 @@
         <div class="flex items-center text-sm">
           <img
             src="https://api.dicebear.com/7.x/bottts/svg?seed={{ $post->author->id }}"
-            alt="avatar"
+            alt="Profile Image"
             loading="lazy"
             width="56"
           />

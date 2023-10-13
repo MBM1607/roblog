@@ -9,7 +9,7 @@
 
   <header class='flex items-center'>
     <img
-      src='https://i.pravatar.cc/100?u={{ auth()->id() }}'
+      src="https://api.dicebear.com/7.x/bottts/svg?seed={{ auth()->id }}"
       alt='Profile Image'
       loading='lazy'
       width='40'

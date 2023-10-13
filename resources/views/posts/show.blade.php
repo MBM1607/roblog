@@ -8,6 +8,7 @@
             src="https://picsum.photos/seed/{{ $post->id }}/512/400"
             alt="Blog Post illustration"
             class="rounded-xl"
+            loading="lazy"
           >
 
           <p class="mt-4 block text-xs text-red-400">
@@ -20,7 +21,7 @@
           <div class="mt-4 flex items-center text-sm lg:justify-center">
             <img
               src="https://api.dicebear.com/7.x/bottts/svg?seed={{ $post->author->id }}"
-              alt="avatar"
+              alt="Profile Image"
               loading="lazy"
               width="56"
             />
